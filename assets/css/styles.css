@@ -100,7 +100,10 @@ img {
 .twinkling {
     background: transparent url(../images/twinkling.png) repeat top center;
     z-index: 1;
+    /* animation moves the twinkling layer to create a subtle parallax/starfield effect */
     animation: move-twink-back 200s linear infinite;
+    /* you can pause background motion by setting --bg-anim-state: paused on body (see start.html) */
+    animation-play-state: var(--bg-anim-state, running);
 }
 
 .clouds {
@@ -108,4 +111,5 @@ img {
     z-index: 2;
     opacity: .4;
     animation: move-clouds-back 200s linear infinite;
+    animation-play-state: var(--bg-anim-state, running);
 }
