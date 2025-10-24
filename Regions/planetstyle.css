@@ -1,0 +1,166 @@
+body {
+    display: grid;
+    grid-template-columns: 15vw auto 15vw;
+    grid-template-rows: 15vh auto 15vh;
+    grid-template-areas: 
+        "home header none"
+        "nav main aside"
+        "footer footer footer";
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 1vw;
+    margin-right: 1vw;
+    min-height: 100vh;
+    /* prevent the body from scrolling; we'll make .content scrollable */
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'sterilict';
+    src: url(../assets/fonts/sterilict/Sterilict.otf) format('opentype');
+}
+
+h1,h2,h3,h4,p,a {
+    position: relative;
+    z-index: 3;
+}
+
+.planetname {
+    grid-area: header;
+    margin-right: 5vw;
+}
+
+.home{
+    grid-area: home;
+}
+
+
+.nav {
+    grid-area: nav;
+    margin-top: 30px;
+    z-index: 3;
+}
+
+.nav2 {
+    grid-area: aside;
+    margin-top: 30px;
+    z-index: 3;
+}
+
+.nav h4, .nav2 h4 {
+    font-size: 2vh;
+    margin-left: 10px;
+    color: white;
+    font-family: 'aurebesh';
+    margin-bottom: 10px;
+}
+
+
+
+.nav-list, .nav-list2 {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-top: 8px;
+}
+
+
+.nav-list li, .nav-list2 li {
+    margin-bottom: 0.5rem; /* Abstand zwischen Einträgen */
+}
+
+.nav-list li a {
+    display: block; /* sorgt dafür, dass Links die ganze Zeile einnehmen */
+    padding: 6px 10px;
+    font-size: 1.4vh;
+    color: white;
+    font-family: 'sterilict';
+    margin-left: 2vw;
+    text-decoration: none;
+}
+
+.nav-list2 li a {
+    display: block; /* sorgt dafür, dass Links die ganze Zeile einnehmen */
+    padding: 6px 10px;
+    font-size: 1.4vh;
+    color: white;
+    font-family: 'sterilict';;
+    margin-left: 1vw;
+    text-decoration: none;
+}
+
+.nav-list li a:hover,
+.nav-list2 li a:hover,
+.nav-list2 li a:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+}
+
+.content {
+    grid-area: main;
+    margin-top: 30px;
+    z-index: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 6rem; 
+    overflow-y: auto;
+    max-height: calc(100vh - 15vh - 15vh - 60px); /* viewport minus header and footer rows and some margin */
+    position: relative;
+}
+
+/* ---- Hide scrollbar but keep scrolling (cross-browser) ---- */
+.content {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.content::-webkit-scrollbar {
+    width: 0; /* for vertical scrollbar */
+    height: 0; /* for horizontal scrollbar */
+    background: transparent;
+}
+
+.content p {
+    font-size: 1.8vh;
+    line-height: 1.6;
+    color: white;
+    font-family: 'arial';
+    margin-right: 5vw;
+}
+
+.content h2 {
+    font-size: 3vh;
+    color: white;
+    font-family: 'sterilict';
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    align-items:center;
+    background-color: rgba(43, 43, 43, 0.751);
+    font-family: 'sterilict';
+    color: aliceblue;
+    z-index: 3; /* above content */
+    font-size: 1.4vh;
+    justify-content: center;
+    padding: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky; /* ensure footer stays at bottom of viewport but overlays content */
+    bottom: 0;
+}
+
+.footer p, a {
+    color: aliceblue;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    gap: 2rem;
+    text-align: center;
+}
